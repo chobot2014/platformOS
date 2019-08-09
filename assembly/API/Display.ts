@@ -12,16 +12,15 @@ export interface DisplaySize {
 }
 
 export interface DisplayData {
-    resolution: Array<Array<number>>;    
+    size: DisplaySize;
 }
 
 export interface DisplayState {
     currentData: DisplayData;
 }
 
-export default interface Display extends Interface {    
+export default interface Display extends Interface {
     refreshRatePerSecond: number;
-    displayLocation: DisplayLocation;
-    dimensions: number;
+    displayLocation: DisplayLocation;    
     currentState: DisplayState;
 }
