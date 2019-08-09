@@ -1,0 +1,18 @@
+{
+	"name": "wasm-to-asm",
+	"version": "1.0.0",
+	"description": "Combile WASM to x86_64",
+	"main": "main.js",
+	"scripts": {
+		"build": "tsc",
+		"wabt": "bash -c '[[ -d test/wabt ]]' || (git clone --depth 1 https://github.com/WebAssembly/wabt test/wabt && cd test/wabt && make gcc-release-no-tests)",
+		"clone-spec": "rm -rf test/spec && cd test && git clone --depth 1 https://github.com/WebAssembly/spec",
+		"test": "npm run build && npm run wabt && tsc -p test/tsconfig.json && npm run clone-spec && node test/main.js"
+	},
+	"author": "Caleb Sander",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^12.6.2",
+		"typescript": "^3.5.3"
+	}
+}
