@@ -2,7 +2,7 @@
 
 // support all the things someday
 export enum SystemArchitecture {
-    x86
+    x86 // elf32
 }
 
 export enum SystemFormFactor {

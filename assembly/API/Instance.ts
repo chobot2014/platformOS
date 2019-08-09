@@ -3,13 +3,23 @@ import System from './System';
 export enum InstanceState {
     on,
     off,
-    inHibernation    
+    inHibernation
 }
 
-// represents the most root type of the running system
+// THIS IS DEFINED IN A ONE TO ONE WITH A SYSTEM AS DEFINED BY A HUMAN
 // keep me tiny
-export default interface Instance {
+export interface IInstance {
     system: System;
     systemUptime: Date;
     state: InstanceState;
+}
+
+
+export default class Instance {
+    constructor() {
+
+    }
+    
+
+
 }
