@@ -9,3 +9,9 @@ but grub-mkrescueiso or whatever it doesn't work on the windows subsystem for li
 
 
 to build follow allong with notes.md
+
+
+
+
+FIRST TODO: 
+    create build script: typescript to .iso file with npm run build
