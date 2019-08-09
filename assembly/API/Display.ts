@@ -1,5 +1,3 @@
-import Interface from "./Interface";
-
 export enum DisplayLocation {
     primary,
     attached,
@@ -12,15 +10,16 @@ export interface DisplaySize {
 }
 
 export interface DisplayData {
-    size: DisplaySize;
+    size: DisplaySize;    
 }
 
 export interface DisplayState {
     currentData: DisplayData;
+    children: Array<Display>;    
 }
 
-export default interface Display extends Interface {
+export default interface Display {
     refreshRatePerSecond: number;
-    displayLocation: DisplayLocation;    
+    displayLocation: DisplayLocation;
     currentState: DisplayState;
 }

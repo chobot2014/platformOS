@@ -20,7 +20,7 @@ export default class Instance implements IInstance {
     systemUptime: Date;
     state: InstanceState;
     constructor() {
-
+        
     }
 
 
