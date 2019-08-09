@@ -1,3 +1,4 @@
+import System from './System';
 
 export enum InstanceState {
     on,
@@ -8,7 +9,7 @@ export enum InstanceState {
 // represents the most root type of the running system
 // keep me tiny
 export default interface Instance {
-    system: MediaKeySystemAccess;
+    system: System;
     systemUptime: Date;
     state: InstanceState;
 }

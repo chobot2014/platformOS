@@ -20,3 +20,9 @@ or  -->
 
 
 ld -m elf_i386 -T link.ld -o kernel kasm.o kc.o
+
+
+
+
+#current train of thought
+    : it would be dope to just use a document database as the filesystem
