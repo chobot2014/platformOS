@@ -15,13 +15,13 @@ export interface IInstance {
 }
 
 
-export default class Instance implements IInstance {
-    system: System;
-    systemUptime: Date;
-    state: InstanceState;
-    constructor() {
-        
-    }
+// export default class Instance implements IInstance {
+//     system: System;
+//     systemUptime: Date;
+//     state: InstanceState;
+//     constructor() {
+
+//     }
 
 
-}
+// }
