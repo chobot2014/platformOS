@@ -1,7 +1,11 @@
 {
   "scripts": {
-    "asbuild:untouched": "asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat --sourceMap --validate --debug",
-    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --sourceMap --validate --optimize",
-    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
+    "typescript2wasm": "asc assembly/index.ts -o ./build/optimized.wasm",
+    "wasm2c": "cd ./build && ./wasm2c optimized.wasm -o wasmOs.c",
+    "buildthec": "cd ./build && gcc -o builtKernel osInjector.c wasmOs.c wasm-rt-impl.c",
+    "build": "npm run typescript2wasm && npm run wasm2c && npm run buildthec"
+  },
+  "dependencies": {
+    "assemblyscript": "^0.3.0"
   }
 }
