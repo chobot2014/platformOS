@@ -1,0 +1,8 @@
+node_modules
+.git
+*.iso
+build/kernel
+build/*.o
+build/wasmOs.c
+build/optimized.wasm
+lib/wabt
