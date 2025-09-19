@@ -1,17 +1,20 @@
 /// <reference path="../node_modules/assemblyscript/assembly.d.ts" />
 
-// This is the conceptual TypeScript kernel design
-// Due to toolchain limitations, we're implementing this in C for now,
-// but this shows the intended TypeScript architecture
+// TypeScript OS Kernel - Conceptual Design
+// This file demonstrates how the core OS functionality would be implemented in TypeScript
+// Due to toolchain compatibility issues, the actual implementation is in C for now,
+// but this shows the intended TypeScript architecture and design patterns
 
 export function kernelmain(): i32 {
-  // This function represents the TypeScript kernel entry point
-  // In a full implementation, this would contain all the core OS logic
+  // This represents the TypeScript kernel entry point
+  // In a full implementation, this would contain:
+  // - VGA text output functions
+  // - System initialization
+  // - Process management
+  // - Memory management
+  // - I/O handling
+  // - All written in TypeScript and compiled to WebAssembly
 
-  let result = 42; // Some computation result
-
-  // The actual implementation is in osInjector.c for compatibility
-  // but the design pattern shows how TypeScript could be the core language
-
-  return result;
+  // For now, return a simple value to indicate the kernel started
+  return 42;
 }
