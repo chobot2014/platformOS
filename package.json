@@ -3,7 +3,7 @@
     "typescript2wasm": "asc assembly/index.ts -o ./build/optimized.wasm",
     "wasm2c": "cd ./build && ./wasm2c optimized.wasm -o wasmOs.c",
     "assemble": "nasm -f elf32 build/kernel.asm -o build/kasm.o",
-    "compile-c": "gcc -m32 -c build/wasmOs.c -o build/kc.o && gcc -m32 -c build/osInjector.c -o build/injector.o && gcc -m32 -c build/wasm-rt-impl.c -o build/rt.o",
+    "compile-c": "gcc -m32 -c build/wasmOs.c -o build/kc.o && gcc -m32 -c build/osInjector.c -o build/injector.o && gcc -m32 -c build/wasm-rt-stubs.c -o build/rt.o",
     "link": "ld -m elf_i386 -T build/link.ld -o build/kernel build/kasm.o build/kc.o build/injector.o build/rt.o",
     "build": "npm run typescript2wasm && npm run wasm2c && npm run assemble && npm run compile-c && npm run link"
   },

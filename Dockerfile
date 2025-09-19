@@ -1,15 +1,24 @@
 FROM ubuntu:22.04
 
-# Install dependencies
+# Install Node.js 18 (has fetch support)
+RUN apt-get update && apt-get install -y \
+    curl \
+    && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install other dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     nasm \
     grub-pc-bin \
-    nodejs \
-    npm \
     cmake \
     git \
     xorriso \
+    python3 \
+    python3-dev \
+    gcc-multilib \
+    g++-multilib \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
@@ -24,8 +33,9 @@ RUN npm install -g assemblyscript
 # Copy source code
 COPY . .
 
-# Clone and build wabt (WebAssembly Binary Toolkit)
-RUN cd lib && \
+# Clone and build wabt (WebAssembly Binary Toolkit) - skip if wasm2c already exists
+RUN if [ ! -f build/wasm2c ]; then \
+    cd lib && \
     rm -rf wabt && \
     git clone https://github.com/WebAssembly/wabt.git && \
     cd wabt && \
@@ -34,7 +44,8 @@ RUN cd lib && \
     git submodule update --init && \
     cmake .. && \
     cmake --build . && \
-    cp wasm2c ../../../build/
+    cp wasm2c ../../../build/; \
+    fi
 
 # Build the OS
 RUN npm run build
