@@ -8,6 +8,6 @@
     "build": "npm run typescript2wasm && npm run wasm2c && npm run assemble && npm run compile-c && npm run link"
   },
   "dependencies": {
-    "assemblyscript": "^0.27.0"
+    "assemblyscript": "^0.18.0"
   }
 }

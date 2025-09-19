@@ -30,5 +30,16 @@ void* wasm_rt_allocate_table(uint32_t elements, uint32_t max_elements, uint32_t 
     return (void*)0;
 }
 
+/* Missing functions that wasm2c generated code expects */
+void Z_envZ_abortZ_viiii(int a, int b, int c, int d) {
+    /* Environment abort - halt the kernel */
+    __asm__ volatile("hlt");
+}
+
+uint32_t wasm_rt_grow_memory(uint32_t pages) {
+    /* Stub - can't grow memory in kernel, return failure */
+    return (uint32_t)-1;
+}
+
 /* Global variables */
 uint32_t wasm_rt_call_stack_depth = 0;
